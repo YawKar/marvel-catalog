@@ -1,9 +1,12 @@
 package com.yawkar.marvelcatalog.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.yawkar.marvelcatalog.dto.ComicDTO;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/v1/public/comics")
@@ -20,7 +23,12 @@ public class ComicsController {
     }
 
     @GetMapping("/{comicId}/characters")
-    public String getAllCharactersByComicId(@PathVariable String comicId) {
-        return "Woo-Hoo-Hoo, where are all characters from the comic with id: %s?".formatted(comicId);
+    public String getAllHeroesByComicId(@PathVariable String comicId) {
+        return "Woo-Hoo-Hoo, where are all heroes from the comic with id: %s?".formatted(comicId);
+    }
+
+    @PostMapping
+    public ResponseEntity<Map<String, Long>> postNewComic(@Valid @RequestBody ComicDTO comicDTO) {
+        return new ResponseEntity<>(Map.of("id", 1L), HttpStatus.OK);
     }
 }
