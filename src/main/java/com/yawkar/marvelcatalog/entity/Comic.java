@@ -11,7 +11,6 @@ public class Comic {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String title;
-    private String synopsis;
     @Column(name = "executive_editor")
     private String executiveEditor;
     @ElementCollection
@@ -38,14 +37,6 @@ public class Comic {
         this.title = title;
     }
 
-    public String getSynopsis() {
-        return synopsis;
-    }
-
-    public void setSynopsis(String synopsis) {
-        this.synopsis = synopsis;
-    }
-
     public String getExecutiveEditor() {
         return executiveEditor;
     }
@@ -66,7 +57,7 @@ public class Comic {
         return heroesPresent;
     }
 
-    public void setHeroesPresent(List<Hero> charactersPresent) {
-        this.heroesPresent = charactersPresent;
+    public void setHeroesPresent(List<Hero> heroesPresent) {
+        this.heroesPresent = heroesPresent;
     }
 }
