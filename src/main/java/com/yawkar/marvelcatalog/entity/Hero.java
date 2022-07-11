@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "characters")
-public class Character {
+@Table(name = "heroes")
+public class Hero {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,13 +17,13 @@ public class Character {
     private List<String> superpowers;
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
-            name = "characters_in_comics",
-            joinColumns = @JoinColumn(name = "character_id"),
+            name = "heroes_in_comics",
+            joinColumns = @JoinColumn(name = "hero_id"),
             inverseJoinColumns = @JoinColumn(name = "comic_id")
     )
     private List<Comic> comicsInWhichPresent;
 
-    public Character() {}
+    public Hero() {}
 
     public long getId() {
         return id;

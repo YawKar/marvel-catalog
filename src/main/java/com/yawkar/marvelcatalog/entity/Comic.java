@@ -18,7 +18,7 @@ public class Comic {
     @Column(name = "cover_artists")
     private List<String> coverArtists;
     @ManyToMany(mappedBy = "comicsInWhichPresent", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private List<Character> charactersPresent;
+    private List<Hero> heroesPresent;
 
     public Comic() {}
 
@@ -62,11 +62,11 @@ public class Comic {
         this.coverArtists = coverArtists;
     }
 
-    public List<Character> getCharactersPresent() {
-        return charactersPresent;
+    public List<Hero> getHeroesPresent() {
+        return heroesPresent;
     }
 
-    public void setCharactersPresent(List<Character> charactersPresent) {
-        this.charactersPresent = charactersPresent;
+    public void setHeroesPresent(List<Hero> charactersPresent) {
+        this.heroesPresent = charactersPresent;
     }
 }
