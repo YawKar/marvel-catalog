@@ -17,8 +17,8 @@ public class HeroesService {
         this.modelMapper = modelMapper;
     }
 
-    public long insertNewHero(HeroDTO heroDTO) {
+    public HeroDTO insertNewHero(HeroDTO heroDTO) {
         Hero hero = modelMapper.map(heroDTO, Hero.class);
-        return heroesRepository.save(hero).getId();
+        return modelMapper.map(heroesRepository.save(hero), HeroDTO.class);
     }
 }

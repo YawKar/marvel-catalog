@@ -17,8 +17,8 @@ public class ComicsService {
         this.modelMapper = modelMapper;
     }
 
-    public long insertNewComic(ComicDTO comicDTO) {
+    public ComicDTO insertNewComic(ComicDTO comicDTO) {
         Comic comic = modelMapper.map(comicDTO, Comic.class);
-        return comicsRepository.save(comic).getId();
+        return modelMapper.map(comicsRepository.save(comic), ComicDTO.class);
     }
 }

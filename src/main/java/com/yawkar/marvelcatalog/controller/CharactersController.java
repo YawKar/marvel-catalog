@@ -35,7 +35,7 @@ public class CharactersController {
     }
 
     @PostMapping
-    public ResponseEntity<Map<String, Long>> postNewHero(@Valid @RequestBody HeroDTO heroDTO) {
-        return new ResponseEntity<>(Map.of("id", heroesService.insertNewHero(heroDTO)), HttpStatus.OK);
+    public HeroDTO postNewHero(@Valid @RequestBody HeroDTO heroDTO) {
+        return heroesService.insertNewHero(heroDTO);
     }
 }

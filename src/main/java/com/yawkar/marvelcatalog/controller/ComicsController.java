@@ -2,12 +2,9 @@ package com.yawkar.marvelcatalog.controller;
 
 import com.yawkar.marvelcatalog.dto.ComicDTO;
 import com.yawkar.marvelcatalog.service.ComicsService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/v1/public/comics")
@@ -35,7 +32,7 @@ public class ComicsController {
     }
 
     @PostMapping
-    public ResponseEntity<Map<String, Long>> postNewComic(@Valid @RequestBody ComicDTO comicDTO) {
-        return new ResponseEntity<>(Map.of("id", comicsService.insertNewComic(comicDTO)), HttpStatus.OK);
+    public ComicDTO postNewComic(@Valid @RequestBody ComicDTO comicDTO) {
+        return comicsService.insertNewComic(comicDTO);
     }
 }
