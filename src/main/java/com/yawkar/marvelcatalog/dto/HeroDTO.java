@@ -1,16 +1,19 @@
 package com.yawkar.marvelcatalog.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 public class HeroDTO {
 
-    @NotBlank
+    @JsonProperty("real_name")
+    @NotBlank(message = "Name can't be blank or null")
     private String realName;
-    @NotBlank
+    @NotBlank(message = "Alias can't be blank or null")
     private String alias;
-    @NotNull
+    @NotNull(message = "The superpowers list can't be null")
     private List<String> superpowers;
 
     public HeroDTO() {}
