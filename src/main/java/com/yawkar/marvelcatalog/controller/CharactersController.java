@@ -1,6 +1,7 @@
 package com.yawkar.marvelcatalog.controller;
 
 import com.yawkar.marvelcatalog.dto.HeroDTO;
+import com.yawkar.marvelcatalog.service.HeroesService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,12 @@ import java.util.Map;
 @RestController
 @RequestMapping("/v1/public/characters")
 public class CharactersController {
+
+    private final HeroesService heroesService;
+
+    public CharactersController(HeroesService heroesService) {
+        this.heroesService = heroesService;
+    }
 
     @GetMapping
     public String getAllHeroes() {
@@ -29,6 +36,6 @@ public class CharactersController {
 
     @PostMapping
     public ResponseEntity<Map<String, Long>> postNewHero(@Valid @RequestBody HeroDTO heroDTO) {
-        return new ResponseEntity<>(Map.of("id", 1L), HttpStatus.OK);
+        return new ResponseEntity<>(Map.of("id", heroesService.insertNewHero(heroDTO)), HttpStatus.OK);
     }
 }

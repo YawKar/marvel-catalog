@@ -1,5 +1,7 @@
 package com.yawkar.marvelcatalog.service;
 
+import com.yawkar.marvelcatalog.dto.HeroDTO;
+import com.yawkar.marvelcatalog.entity.Hero;
 import com.yawkar.marvelcatalog.repository.HeroesRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -13,5 +15,10 @@ public class HeroesService {
     public HeroesService(HeroesRepository heroesRepository, ModelMapper modelMapper) {
         this.heroesRepository = heroesRepository;
         this.modelMapper = modelMapper;
+    }
+
+    public long insertNewHero(HeroDTO heroDTO) {
+        Hero hero = modelMapper.map(heroDTO, Hero.class);
+        return heroesRepository.save(hero).getId();
     }
 }
