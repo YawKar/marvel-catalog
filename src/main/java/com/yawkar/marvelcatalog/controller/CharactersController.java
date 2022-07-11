@@ -1,26 +1,34 @@
 package com.yawkar.marvelcatalog.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.yawkar.marvelcatalog.dto.HeroDTO;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/v1/public/characters")
 public class CharactersController {
 
     @GetMapping
-    public String getAllCharacters() {
+    public String getAllHeroes() {
         return "Woo-Hoo-Hoo";
     }
 
-    @GetMapping("/{characterId}")
-    public String getCharacterById(@PathVariable String characterId) {
-        return "Woo-Hoo-Hoo, where is the character with id: %s?".formatted(characterId);
+    @GetMapping("/{heroId}")
+    public String getHeroById(@PathVariable long heroId) {
+        return "Woo-Hoo-Hoo, where is the hero with id: %s?".formatted(heroId);
     }
 
-    @GetMapping("/{characterId}/comics")
-    public String getAllComicsByCharacterId(@PathVariable String characterId) {
-        return "Woo-Hoo-Hoo, where are all comics with the character with id: %s?".formatted(characterId);
+    @GetMapping("/{heroId}/comics")
+    public String getAllComicsByHeroId(@PathVariable long heroId) {
+        return "Woo-Hoo-Hoo, where are all comics with the hero with id: %s?".formatted(heroId);
+    }
+
+    @PostMapping
+    public ResponseEntity<Map<String, Long>> postNewHero(@Valid @RequestBody HeroDTO heroDTO) {
+        return new ResponseEntity<>(Map.of("id", 1L), HttpStatus.OK);
     }
 }
