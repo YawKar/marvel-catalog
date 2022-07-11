@@ -1,13 +1,12 @@
 package com.yawkar.marvelcatalog.controller;
 
+import com.yawkar.marvelcatalog.dto.ComicDTO;
 import com.yawkar.marvelcatalog.dto.HeroDTO;
 import com.yawkar.marvelcatalog.service.HeroesService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Map;
+import java.util.List;
 
 @RestController
 @RequestMapping("/v1/public/characters")
@@ -20,18 +19,18 @@ public class CharactersController {
     }
 
     @GetMapping
-    public String getAllHeroes() {
-        return "Woo-Hoo-Hoo";
+    public List<HeroDTO> getAllHeroes() {
+        return heroesService.findAllHeroes();
     }
 
     @GetMapping("/{heroId}")
-    public String getHeroById(@PathVariable long heroId) {
-        return "Woo-Hoo-Hoo, where is the hero with id: %s?".formatted(heroId);
+    public HeroDTO getHeroById(@PathVariable long heroId) {
+        return heroesService.findHeroById(heroId);
     }
 
     @GetMapping("/{heroId}/comics")
-    public String getAllComicsByHeroId(@PathVariable long heroId) {
-        return "Woo-Hoo-Hoo, where are all comics with the hero with id: %s?".formatted(heroId);
+    public List<ComicDTO> getAllComicsByHeroId(@PathVariable long heroId) {
+        return heroesService.findAllComicsByHeroId(heroId);
     }
 
     @PostMapping
