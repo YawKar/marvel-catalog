@@ -17,7 +17,7 @@ public class Comic {
     @ElementCollection
     @Column(name = "cover_artists")
     private List<String> coverArtists;
-    @ManyToMany(mappedBy = "comicsInWhichPresent", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(mappedBy = "comicsInWhichPresent")
     private List<Hero> heroesPresent;
 
     public Comic() {}
