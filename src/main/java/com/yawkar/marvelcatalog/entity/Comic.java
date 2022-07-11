@@ -1,7 +1,10 @@
 package com.yawkar.marvelcatalog.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "comics")
@@ -17,7 +20,7 @@ public class Comic {
     @Column(name = "cover_artists")
     private List<String> coverArtists;
     @ManyToMany(mappedBy = "comicsInWhichPresent")
-    private List<Hero> heroesPresent;
+    private Set<Hero> heroesPresent = new HashSet<>();
 
     public Comic() {}
 
@@ -53,11 +56,24 @@ public class Comic {
         this.coverArtists = coverArtists;
     }
 
-    public List<Hero> getHeroesPresent() {
+    public Set<Hero> getHeroesPresent() {
         return heroesPresent;
     }
 
-    public void setHeroesPresent(List<Hero> heroesPresent) {
+    public void setHeroesPresent(Set<Hero> heroesPresent) {
         this.heroesPresent = heroesPresent;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Comic)) return false;
+        Comic comic = (Comic) o;
+        return id == comic.id && title.equals(comic.title) && executiveEditor.equals(comic.executiveEditor) && coverArtists.equals(comic.coverArtists) && heroesPresent.equals(comic.heroesPresent);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, executiveEditor, coverArtists, heroesPresent);
     }
 }

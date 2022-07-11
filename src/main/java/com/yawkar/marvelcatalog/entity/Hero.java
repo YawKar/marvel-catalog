@@ -1,7 +1,10 @@
 package com.yawkar.marvelcatalog.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "heroes")
@@ -21,7 +24,7 @@ public class Hero {
             joinColumns = @JoinColumn(name = "hero_id"),
             inverseJoinColumns = @JoinColumn(name = "comic_id")
     )
-    private List<Comic> comicsInWhichPresent;
+    private Set<Comic> comicsInWhichPresent = new HashSet<>();
 
     public Hero() {}
 
@@ -57,11 +60,24 @@ public class Hero {
         this.superpowers = superpowers;
     }
 
-    public List<Comic> getComicsInWhichPresent() {
+    public Set<Comic> getComicsInWhichPresent() {
         return comicsInWhichPresent;
     }
 
-    public void setComicsInWhichPresent(List<Comic> comicsInWhichPresent) {
+    public void setComicsInWhichPresent(Set<Comic> comicsInWhichPresent) {
         this.comicsInWhichPresent = comicsInWhichPresent;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Hero)) return false;
+        Hero hero = (Hero) o;
+        return id == hero.id && realName.equals(hero.realName) && alias.equals(hero.alias) && superpowers.equals(hero.superpowers) && comicsInWhichPresent.equals(hero.comicsInWhichPresent);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, realName, alias, superpowers, comicsInWhichPresent);
     }
 }
