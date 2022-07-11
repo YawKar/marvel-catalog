@@ -9,6 +9,7 @@ import java.util.List;
 
 public class ComicDTO {
 
+    private long id;
     @NotBlank(message = "Title can't be blank or null")
     private String title;
     @JsonProperty("executive_editor")
@@ -43,5 +44,13 @@ public class ComicDTO {
 
     public void setCoverArtists(List<String> coverArtists) {
         this.coverArtists = coverArtists;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

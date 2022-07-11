@@ -8,6 +8,7 @@ import java.util.List;
 
 public class HeroDTO {
 
+    private long id;
     @JsonProperty("real_name")
     @NotBlank(message = "Name can't be blank or null")
     private String realName;
@@ -40,5 +41,13 @@ public class HeroDTO {
 
     public void setSuperpowers(List<String> superpowers) {
         this.superpowers = superpowers;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
