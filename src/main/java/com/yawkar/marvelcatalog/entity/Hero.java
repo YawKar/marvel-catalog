@@ -73,11 +73,11 @@ public class Hero {
         if (this == o) return true;
         if (!(o instanceof Hero)) return false;
         Hero hero = (Hero) o;
-        return id == hero.id && realName.equals(hero.realName) && alias.equals(hero.alias) && superpowers.equals(hero.superpowers) && comicsInWhichPresent.equals(hero.comicsInWhichPresent);
+        return id == hero.id && realName.equals(hero.realName) && alias.equals(hero.alias) && superpowers.equals(hero.superpowers);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, realName, alias, superpowers, comicsInWhichPresent);
+        return Objects.hash(id, realName, alias, superpowers);
     }
 }

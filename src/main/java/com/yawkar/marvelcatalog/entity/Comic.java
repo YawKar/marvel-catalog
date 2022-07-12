@@ -69,11 +69,11 @@ public class Comic {
         if (this == o) return true;
         if (!(o instanceof Comic)) return false;
         Comic comic = (Comic) o;
-        return id == comic.id && title.equals(comic.title) && executiveEditor.equals(comic.executiveEditor) && coverArtists.equals(comic.coverArtists) && heroesPresent.equals(comic.heroesPresent);
+        return id == comic.id && title.equals(comic.title) && executiveEditor.equals(comic.executiveEditor) && coverArtists.equals(comic.coverArtists);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, executiveEditor, coverArtists, heroesPresent);
+        return Objects.hash(id, title, executiveEditor, coverArtists);
     }
 }

@@ -3,7 +3,6 @@ package com.yawkar.marvelcatalog.service;
 import com.yawkar.marvelcatalog.dto.ComicDTO;
 import com.yawkar.marvelcatalog.dto.HeroDTO;
 import com.yawkar.marvelcatalog.entity.Comic;
-import com.yawkar.marvelcatalog.entity.Hero;
 import com.yawkar.marvelcatalog.repository.ComicsRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
