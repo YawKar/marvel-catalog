@@ -3,6 +3,7 @@ package com.yawkar.marvelcatalog.service;
 import com.yawkar.marvelcatalog.dto.ComicDTO;
 import com.yawkar.marvelcatalog.dto.HeroDTO;
 import com.yawkar.marvelcatalog.entity.Comic;
+import com.yawkar.marvelcatalog.entity.Hero;
 import com.yawkar.marvelcatalog.repository.ComicsRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -25,6 +26,14 @@ public class ComicsService {
 
     public ComicDTO insertNewComic(ComicDTO comicDTO) {
         Comic comic = modelMapper.map(comicDTO, Comic.class);
+        comic.setId(0L);
+        return modelMapper.map(comicsRepository.save(comic), ComicDTO.class);
+    }
+
+    public ComicDTO updateComic(ComicDTO comicDTO) {
+        Comic comic = comicsRepository.findById(comicDTO.getId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        modelMapper.map(comicDTO, comic);
         return modelMapper.map(comicsRepository.save(comic), ComicDTO.class);
     }
 

@@ -25,6 +25,14 @@ public class HeroesService {
 
     public HeroDTO insertNewHero(HeroDTO heroDTO) {
         Hero hero = modelMapper.map(heroDTO, Hero.class);
+        hero.setId(0L);
+        return modelMapper.map(heroesRepository.save(hero), HeroDTO.class);
+    }
+
+    public HeroDTO updateHero(HeroDTO heroDTO) {
+        Hero hero = heroesRepository.findById(heroDTO.getId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        modelMapper.map(heroDTO, hero);
         return modelMapper.map(heroesRepository.save(hero), HeroDTO.class);
     }
 

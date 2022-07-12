@@ -37,4 +37,9 @@ public class ComicsController {
     public ComicDTO postNewComic(@Valid @RequestBody ComicDTO comicDTO) {
         return comicsService.insertNewComic(comicDTO);
     }
+
+    @PutMapping
+    public ComicDTO putComic(@Valid @RequestBody ComicDTO comicDTO) {
+        return comicsService.updateComic(comicDTO);
+    }
 }

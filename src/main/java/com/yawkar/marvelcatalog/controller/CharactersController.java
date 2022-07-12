@@ -37,4 +37,9 @@ public class CharactersController {
     public HeroDTO postNewHero(@Valid @RequestBody HeroDTO heroDTO) {
         return heroesService.insertNewHero(heroDTO);
     }
+
+    @PutMapping
+    public HeroDTO putHero(@Valid @RequestBody HeroDTO heroDTO) {
+        return heroesService.updateHero(heroDTO);
+    }
 }
