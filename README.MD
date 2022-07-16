@@ -6,7 +6,6 @@ REST API service for managing catalog of superheroes and comics
 * [Persistence layer details](#persistence-layer-details)
 * [Technologies & Features](#technologies-and-features)
 
----
 ## API endpoints
 All routes are clickable!
 * Characters controller
@@ -35,7 +34,6 @@ All routes are clickable!
   * [`PUT /v1/public/attach`](https://github.com/YawKar/marvel-catalog/blob/1511d84c147d092289ec36b7f5112c259790b76b/src/main/java/com/yawkar/marvelcatalog/controller/AttachmentsController.java#L28-L50)
     * Adds connections between heroes and comics
 
----
 ## Persistence layer details
 In total there are 3 main tables in the database:
 1. `heroes`
@@ -56,7 +54,6 @@ Also, there are 2 auxiliary tables for persisting of `@ElementCollection` fields
 2. `hero_superpowers`
    * Persists `superpowers`
 
----
 ## Technologies and Features
 
 ![java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
