@@ -1,5 +1,6 @@
 package com.yawkar.marvelcatalog.controller;
 
+import com.yawkar.marvelcatalog.component.ModelMapper;
 import com.yawkar.marvelcatalog.dto.ComicDTO;
 import com.yawkar.marvelcatalog.dto.HeroDTO;
 import com.yawkar.marvelcatalog.service.ComicsService;
@@ -25,9 +26,11 @@ import java.util.List;
 public class ComicsController {
 
     private final ComicsService<Long> comicsService;
+    private final ModelMapper modelMapper;
 
-    public ComicsController(ComicsService<Long> comicsService) {
+    public ComicsController(ComicsService<Long> comicsService, ModelMapper modelMapper) {
         this.comicsService = comicsService;
+        this.modelMapper = modelMapper;
     }
 
     @Operation(summary = "Gets all comics",
