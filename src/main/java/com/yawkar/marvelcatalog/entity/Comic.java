@@ -7,7 +7,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -24,9 +23,8 @@ public class Comic {
     private String title;
     @Column(name = "executive_editor")
     private String executiveEditor;
-    @ElementCollection
     @Column(name = "cover_artists")
-    private List<String> coverArtists;
+    private String coverArtists;
     @ManyToMany(mappedBy = "comicsInWhichPresent")
     private Set<Hero> heroesPresent = new HashSet<>();
 }

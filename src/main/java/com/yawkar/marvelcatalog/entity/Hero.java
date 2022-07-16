@@ -7,7 +7,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -24,8 +23,7 @@ public class Hero {
     @Column(name = "real_name")
     private String realName;
     private String alias;
-    @ElementCollection
-    private List<String> superpowers;
+    private String superpowers;
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "heroes_in_comics",
             joinColumns = @JoinColumn(name = "hero_id"),
