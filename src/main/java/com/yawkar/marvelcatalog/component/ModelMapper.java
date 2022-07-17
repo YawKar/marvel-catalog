@@ -53,7 +53,7 @@ public class ModelMapper {
     public Hero toEntity(HeroDTO heroDTO) {
         Hero hero = new Hero();
         hero.setRealName(heroDTO.getRealName());
-        hero.setAlias(hero.getAlias());
+        hero.setAlias(heroDTO.getAlias());
         hero.setSuperpowers(listToTags(heroDTO.getSuperpowers()));
         return hero;
     }
