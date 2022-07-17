@@ -8,34 +8,68 @@ import com.yawkar.marvelcatalog.view.ComicView;
 import com.yawkar.marvelcatalog.view.HeroView;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Component
 public class ModelMapper {
 
-    Comic toEntity(ComicDTO comicDTO) {
+    private String listToTags(List<String> list) {
+        StringBuilder sb = new StringBuilder();
+        for (String part : list) {
+            sb.append(part).append('|');
+        }
+        if (sb.length() > 0)
+            sb.deleteCharAt(sb.length() - 1);
+        return sb.toString();
+    }
+
+    private List<String> tagsToList(String tags) {
+        return Arrays.stream(tags.split("\\|")).collect(Collectors.toList());
+    }
+
+    public Comic toEntity(ComicDTO comicDTO) {
         Comic comic = new Comic();
         comic.setId(comicDTO.getId());
         comic.setTitle(comicDTO.getTitle());
         comic.setExecutiveEditor(comicDTO.getExecutiveEditor());
-        comic.setCoverArtists(comicDTO.getCoverArtists());
+        comic.setCoverArtists(listToTags(comicDTO.getCoverArtists()));
         return comic;
     }
 
-    ComicView toView(Comic comic) {
+    public ComicView toView(Comic comic) {
         ComicView comicView = new ComicView();
+        comicView.setId(comic.getId());
+        comicView.setTitle(comic.getTitle());
+        comicView.setCoverArtists(tagsToList(comic.getCoverArtists()));
+        comicView.setExecutiveEditor(comic.getExecutiveEditor());
         return comicView;
     }
 
-    Hero toEntity(HeroDTO heroDTO) {
+    public List<ComicView> comicsToViews(List<Comic> comicList) {
+        return comicList.stream().map(this::toView).collect(Collectors.toList());
+    }
+
+    public Hero toEntity(HeroDTO heroDTO) {
         Hero hero = new Hero();
         hero.setId(heroDTO.getId());
         hero.setRealName(heroDTO.getRealName());
         hero.setAlias(hero.getAlias());
-        hero.setSuperpowers(heroDTO.getSuperpowers());
+        hero.setSuperpowers(listToTags(heroDTO.getSuperpowers()));
         return hero;
     }
 
-    HeroView toView(Hero hero) {
+    public HeroView toView(Hero hero) {
         HeroView heroView = new HeroView();
+        heroView.setRealName(hero.getRealName());
+        heroView.setAlias(hero.getAlias());
+        heroView.setId(hero.getId());
+        heroView.setSuperpowers(tagsToList(hero.getSuperpowers()));
         return heroView;
+    }
+
+    public List<HeroView> heroesToViews(List<Hero> heroList) {
+        return heroList.stream().map(this::toView).collect(Collectors.toList());
     }
 }
