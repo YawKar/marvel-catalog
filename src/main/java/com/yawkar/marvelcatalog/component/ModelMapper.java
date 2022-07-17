@@ -31,7 +31,6 @@ public class ModelMapper {
 
     public Comic toEntity(ComicDTO comicDTO) {
         Comic comic = new Comic();
-        comic.setId(comicDTO.getId());
         comic.setTitle(comicDTO.getTitle());
         comic.setExecutiveEditor(comicDTO.getExecutiveEditor());
         comic.setCoverArtists(listToTags(comicDTO.getCoverArtists()));
@@ -53,7 +52,6 @@ public class ModelMapper {
 
     public Hero toEntity(HeroDTO heroDTO) {
         Hero hero = new Hero();
-        hero.setId(heroDTO.getId());
         hero.setRealName(heroDTO.getRealName());
         hero.setAlias(hero.getAlias());
         hero.setSuperpowers(listToTags(heroDTO.getSuperpowers()));

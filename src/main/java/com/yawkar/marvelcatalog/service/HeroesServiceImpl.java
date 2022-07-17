@@ -22,7 +22,6 @@ public class HeroesServiceImpl implements HeroesService {
 
     @Override
     public Hero addHero(Hero hero) {
-        hero.setId(0L);
         return heroesRepository.save(hero);
     }
 

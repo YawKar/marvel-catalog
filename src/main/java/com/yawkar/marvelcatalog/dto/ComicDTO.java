@@ -15,8 +15,6 @@ import java.util.List;
 @NoArgsConstructor
 public class ComicDTO {
 
-    @Schema(description = "Internal identification number of an entity")
-    private long id;
     @Schema(description = "The title of a comic", example = "Clark Kent Gets a Job")
     @NotBlank(message = "Title can't be blank or null")
     private String title;

@@ -14,8 +14,6 @@ import java.util.List;
 @NoArgsConstructor
 public class HeroDTO {
 
-    @Schema(description = "Internal identification number of an entity")
-    private long id;
     @Schema(description = "The real name of a hero", example = "Clark Kent")
     @JsonProperty("real_name")
     @NotBlank(message = "Name can't be blank or null")
