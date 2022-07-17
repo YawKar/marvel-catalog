@@ -24,10 +24,10 @@ import java.util.List;
 @RequestMapping("/v1/public/characters")
 public class CharactersController {
 
-    private final HeroesService<Long> heroesService;
+    private final HeroesService heroesService;
     private final ModelMapper modelMapper;
 
-    public CharactersController(HeroesService<Long> heroesService, ModelMapper modelMapper) {
+    public CharactersController(HeroesService heroesService, ModelMapper modelMapper) {
         this.heroesService = heroesService;
         this.modelMapper = modelMapper;
     }
@@ -103,5 +103,16 @@ public class CharactersController {
     @PutMapping("/{heroId}")
     public HeroView putHero(@Valid @RequestBody HeroDTO heroDTO, @PathVariable long heroId) {
         return modelMapper.toView(heroesService.updateHero(modelMapper.toEntity(heroDTO), heroId));
+    }
+
+    @Operation(summary = "Updates comics in which the hero presents")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200",
+                    description = "Successfully updated the list of comics in which the hero presents"),
+            @ApiResponse(responseCode = "404",
+                    description = "The hero or one of comics is not found")})
+    @PutMapping("/{heroId}/comics")
+    public void putComics(@PathVariable long heroId, @RequestBody List<Long> comicIds) {
+        heroesService.updateComicsWithHero(comicIds, heroId);
     }
 }

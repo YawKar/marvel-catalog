@@ -5,11 +5,11 @@ import com.yawkar.marvelcatalog.entity.Hero;
 
 import java.util.List;
 
-public interface ComicsService<T> {
+public interface ComicsService {
 
     Comic addComic(Comic comic);
-    Comic updateComic(Comic comic, T id);
+    Comic updateComic(Comic comic, long id);
     List<Comic> getAllComics();
-    Comic getComicById(T id);
-    List<Hero> getHeroesFromComicById(T id);
+    Comic getComicById(long id);
+    List<Hero> getHeroesFromComicById(long id);
 }

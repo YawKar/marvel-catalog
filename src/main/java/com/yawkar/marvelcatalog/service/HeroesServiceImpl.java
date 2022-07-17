@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class HeroesServiceImpl implements HeroesService<Long> {
+public class HeroesServiceImpl implements HeroesService {
 
     private final HeroesRepository heroesRepository;
 
@@ -22,7 +22,7 @@ public class HeroesServiceImpl implements HeroesService<Long> {
     }
 
     @Override
-    public Hero updateHero(Hero hero, Long heroId) {
+    public Hero updateHero(Hero hero, long heroId) {
         return null;
     }
 
@@ -32,12 +32,17 @@ public class HeroesServiceImpl implements HeroesService<Long> {
     }
 
     @Override
-    public Hero getHeroById(Long id) {
+    public Hero getHeroById(long heroId) {
         return null;
     }
 
     @Override
-    public List<Comic> getComicsWithHeroById(Long id) {
+    public List<Comic> getComicsWithHeroById(long heroId) {
         return null;
+    }
+
+    @Override
+    public void updateComicsWithHero(List<Long> comicIds, long heroId) {
+
     }
 }

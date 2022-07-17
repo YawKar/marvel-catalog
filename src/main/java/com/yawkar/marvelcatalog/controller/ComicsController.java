@@ -25,10 +25,10 @@ import java.util.List;
 @RequestMapping("/v1/public/comics")
 public class ComicsController {
 
-    private final ComicsService<Long> comicsService;
+    private final ComicsService comicsService;
     private final ModelMapper modelMapper;
 
-    public ComicsController(ComicsService<Long> comicsService, ModelMapper modelMapper) {
+    public ComicsController(ComicsService comicsService, ModelMapper modelMapper) {
         this.comicsService = comicsService;
         this.modelMapper = modelMapper;
     }
