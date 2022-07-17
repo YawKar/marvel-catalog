@@ -22,7 +22,7 @@ public class HeroesServiceImpl implements HeroesService<Long> {
     }
 
     @Override
-    public Hero updateHero(Hero hero) {
+    public Hero updateHero(Hero hero, Long heroId) {
         return null;
     }
 

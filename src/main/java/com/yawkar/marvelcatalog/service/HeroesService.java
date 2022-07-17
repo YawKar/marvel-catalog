@@ -8,7 +8,7 @@ import java.util.List;
 public interface HeroesService<T> {
 
     Hero addHero(Hero hero);
-    Hero updateHero(Hero hero);
+    Hero updateHero(Hero hero, T id);
     List<Hero> getAllHeroes();
     Hero getHeroById(T id);
     List<Comic> getComicsWithHeroById(T id);

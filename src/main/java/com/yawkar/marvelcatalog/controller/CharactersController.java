@@ -41,7 +41,7 @@ public class CharactersController {
                             array = @ArraySchema(schema = @Schema(implementation = HeroView.class)))))
     @GetMapping
     public List<HeroView> getAllHeroes() {
-
+        return modelMapper.heroesToViews(heroesService.getAllHeroes());
     }
 
     @Operation(summary = "Gets a hero",
@@ -58,7 +58,7 @@ public class CharactersController {
     public HeroView getHeroById(
             @Parameter(description = "The internal id of the hero") @PathVariable long heroId
     ) {
-
+        return modelMapper.toView(heroesService.getHeroById(heroId));
     }
 
     @Operation(summary = "Gets all comics with the hero",
@@ -75,7 +75,7 @@ public class CharactersController {
     public List<ComicView> getAllComicsByHeroId(
             @Parameter(description = "The internal id of the hero") @PathVariable long heroId
     ) {
-
+        return modelMapper.comicsToViews(heroesService.getComicsWithHeroById(heroId));
     }
 
     @Operation(summary = "Posts new hero",
@@ -87,7 +87,7 @@ public class CharactersController {
                             schema = @Schema(implementation = HeroView.class))))
     @PostMapping
     public HeroView postNewHero(@Valid @RequestBody HeroDTO heroDTO) {
-
+        return modelMapper.toView(heroesService.addHero(modelMapper.toEntity(heroDTO)));
     }
 
     @Operation(summary = "Updates the hero",
@@ -100,8 +100,8 @@ public class CharactersController {
             @ApiResponse(responseCode = "404",
                     description = "The hero is not found",
                     content = @Content(schema = @Schema(hidden = true)))})
-    @PutMapping
-    public HeroView putHero(@Valid @RequestBody HeroDTO heroDTO) {
-
+    @PutMapping("/{heroId}")
+    public HeroView putHero(@Valid @RequestBody HeroDTO heroDTO, @PathVariable long heroId) {
+        return modelMapper.toView(heroesService.updateHero(modelMapper.toEntity(heroDTO), heroId));
     }
 }
