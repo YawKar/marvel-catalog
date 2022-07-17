@@ -22,7 +22,7 @@ public class ComicsServiceImpl implements ComicsService<Long> {
     }
 
     @Override
-    public Comic updateComic(Comic comic) {
+    public Comic updateComic(Comic comic, Long id) {
         return null;
     }
 

@@ -8,7 +8,7 @@ import java.util.List;
 public interface ComicsService<T> {
 
     Comic addComic(Comic comic);
-    Comic updateComic(Comic comic);
+    Comic updateComic(Comic comic, T id);
     List<Comic> getAllComics();
     Comic getComicById(T id);
     List<Hero> getHeroesFromComicById(T id);

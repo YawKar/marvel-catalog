@@ -42,7 +42,7 @@ public class ComicsController {
                                     array = @ArraySchema(schema = @Schema(implementation = ComicView.class)))))
     @GetMapping
     public List<ComicView> getAllComics() {
-
+        return modelMapper.comicsToViews(comicsService.getAllComics());
     }
 
     @Operation(summary = "Gets a comic",
@@ -59,7 +59,7 @@ public class ComicsController {
     public ComicView getComicById(
             @Parameter(description = "The internal id of the comic") @PathVariable long comicId
     ) {
-
+        return modelMapper.toView(comicsService.getComicById(comicId));
     }
 
     @Operation(summary = "Gets all heroes within the comic",
@@ -76,7 +76,7 @@ public class ComicsController {
     public List<HeroView> getAllHeroesByComicId(
             @Parameter(description = "The internal id of the comic") @PathVariable long comicId
     ) {
-
+        return modelMapper.heroesToViews(comicsService.getHeroesFromComicById(comicId));
     }
 
     @Operation(summary = "Posts new comic",
@@ -88,7 +88,7 @@ public class ComicsController {
                             schema = @Schema(implementation = ComicView.class))))
     @PostMapping
     public ComicView postNewComic(@Valid @RequestBody ComicDTO comicDTO) {
-
+        return modelMapper.toView(comicsService.addComic(modelMapper.toEntity(comicDTO)));
     }
 
     @Operation(summary = "Updates the comic",
@@ -101,8 +101,8 @@ public class ComicsController {
             @ApiResponse(responseCode = "404",
                     description = "The comic is not found",
                     content = @Content(schema = @Schema(hidden = true)))})
-    @PutMapping
-    public ComicView putComic(@Valid @RequestBody ComicDTO comicDTO) {
-
+    @PutMapping("/{comicId}")
+    public ComicView putComic(@Valid @RequestBody ComicDTO comicDTO, @PathVariable long comicId) {
+        return modelMapper.toView(comicsService.updateComic(modelMapper.toEntity(comicDTO), comicId));
     }
 }
