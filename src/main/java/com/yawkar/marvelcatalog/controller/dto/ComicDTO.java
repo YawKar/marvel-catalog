@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -13,6 +14,7 @@ import java.util.List;
 @Schema(description = "A comic entity")
 @Data
 @NoArgsConstructor
+@Accessors(chain = true)
 public class ComicDTO {
 
     @Schema(description = "The title of a comic", example = "Clark Kent Gets a Job")

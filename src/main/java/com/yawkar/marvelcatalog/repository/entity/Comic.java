@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -13,6 +14,7 @@ import java.util.Set;
 @Table(name = "comics")
 @Getter
 @Setter
+@Accessors(chain = true)
 @NoArgsConstructor
 @EqualsAndHashCode(exclude = "heroesPresent")
 public class Comic {
