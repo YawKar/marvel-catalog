@@ -1,6 +1,7 @@
 package com.yawkar.marvelcatalog.controller;
 
-import com.yawkar.marvelcatalog.component.ModelMapper;
+import com.yawkar.marvelcatalog.component.mapper.ComicMapper;
+import com.yawkar.marvelcatalog.component.mapper.HeroMapper;
 import com.yawkar.marvelcatalog.controller.dto.ComicDTO;
 import com.yawkar.marvelcatalog.service.ComicsService;
 import com.yawkar.marvelcatalog.controller.view.ComicView;
@@ -13,6 +14,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,15 +24,12 @@ import java.util.List;
 @Tag(name = "Comics controller", description = "Contains endpoints for managing comics")
 @RestController
 @RequestMapping("/v1/public/comics")
+@AllArgsConstructor
 public class ComicsController {
 
     private final ComicsService comicsService;
-    private final ModelMapper modelMapper;
-
-    public ComicsController(ComicsService comicsService, ModelMapper modelMapper) {
-        this.comicsService = comicsService;
-        this.modelMapper = modelMapper;
-    }
+    private final HeroMapper heroMapper;
+    private final ComicMapper comicMapper;
 
     @Operation(summary = "Gets all comics",
             description = "Gets the list of all comics from the catalog")
@@ -41,7 +40,7 @@ public class ComicsController {
                                     array = @ArraySchema(schema = @Schema(implementation = ComicView.class)))))
     @GetMapping
     public List<ComicView> getAllComics() {
-        return modelMapper.comicsToViews(comicsService.getAllComics());
+        return comicMapper.comicsToViews(comicsService.getAllComics());
     }
 
     @Operation(summary = "Gets a comic",
@@ -58,7 +57,7 @@ public class ComicsController {
     public ComicView getComicById(
             @Parameter(description = "The internal id of the comic") @PathVariable long comicId
     ) {
-        return modelMapper.toView(comicsService.getComicById(comicId));
+        return comicMapper.toView(comicsService.getComicById(comicId));
     }
 
     @Operation(summary = "Gets all heroes within the comic",
@@ -75,7 +74,7 @@ public class ComicsController {
     public List<HeroView> getAllHeroesByComicId(
             @Parameter(description = "The internal id of the comic") @PathVariable long comicId
     ) {
-        return modelMapper.heroesToViews(comicsService.getHeroesFromComicById(comicId));
+        return heroMapper.heroesToViews(comicsService.getHeroesFromComicById(comicId));
     }
 
     @Operation(summary = "Posts new comic",
@@ -87,7 +86,7 @@ public class ComicsController {
                             schema = @Schema(implementation = ComicView.class))))
     @PostMapping
     public ComicView postNewComic(@Valid @RequestBody ComicDTO comicDTO) {
-        return modelMapper.toView(comicsService.addComic(modelMapper.toEntity(comicDTO)));
+        return comicMapper.toView(comicsService.addComic(comicMapper.toEntity(comicDTO)));
     }
 
     @Operation(summary = "Updates the comic",
@@ -102,6 +101,6 @@ public class ComicsController {
                     content = @Content(schema = @Schema(hidden = true)))})
     @PutMapping("/{comicId}")
     public ComicView putComic(@Valid @RequestBody ComicDTO comicDTO, @PathVariable long comicId) {
-        return modelMapper.toView(comicsService.updateComic(modelMapper.toEntity(comicDTO), comicId));
+        return comicMapper.toView(comicsService.updateComic(comicMapper.toEntity(comicDTO), comicId));
     }
 }
