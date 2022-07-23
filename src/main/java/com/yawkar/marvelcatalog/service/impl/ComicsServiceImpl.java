@@ -1,9 +1,10 @@
-package com.yawkar.marvelcatalog.service;
+package com.yawkar.marvelcatalog.service.impl;
 
-import com.yawkar.marvelcatalog.entity.Comic;
-import com.yawkar.marvelcatalog.entity.Hero;
-import com.yawkar.marvelcatalog.exception.ComicNotFoundException;
+import com.yawkar.marvelcatalog.repository.entity.Comic;
+import com.yawkar.marvelcatalog.repository.entity.Hero;
+import com.yawkar.marvelcatalog.configuration.exception.ComicNotFoundException;
 import com.yawkar.marvelcatalog.repository.ComicsRepository;
+import com.yawkar.marvelcatalog.service.ComicsService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

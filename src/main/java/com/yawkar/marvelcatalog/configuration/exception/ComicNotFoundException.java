@@ -1,4 +1,4 @@
-package com.yawkar.marvelcatalog.exception;
+package com.yawkar.marvelcatalog.configuration.exception;
 
 public class ComicNotFoundException extends RuntimeException {
 

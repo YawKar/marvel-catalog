@@ -1,4 +1,4 @@
-package com.yawkar.marvelcatalog.entity;
+package com.yawkar.marvelcatalog.repository.entity;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

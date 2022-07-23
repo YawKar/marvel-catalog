@@ -1,6 +1,6 @@
-package com.yawkar.marvelcatalog.exception;
+package com.yawkar.marvelcatalog.configuration.exception;
 
-import com.yawkar.marvelcatalog.view.ExceptionView;
+import com.yawkar.marvelcatalog.controller.view.ExceptionView;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

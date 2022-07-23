@@ -1,10 +1,10 @@
 package com.yawkar.marvelcatalog.controller;
 
 import com.yawkar.marvelcatalog.component.ModelMapper;
-import com.yawkar.marvelcatalog.dto.HeroDTO;
+import com.yawkar.marvelcatalog.controller.dto.HeroDTO;
 import com.yawkar.marvelcatalog.service.HeroesService;
-import com.yawkar.marvelcatalog.view.ComicView;
-import com.yawkar.marvelcatalog.view.HeroView;
+import com.yawkar.marvelcatalog.controller.view.ComicView;
+import com.yawkar.marvelcatalog.controller.view.HeroView;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.ArraySchema;

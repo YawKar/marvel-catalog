@@ -1,4 +1,4 @@
-package com.yawkar.marvelcatalog.view;
+package com.yawkar.marvelcatalog.controller.view;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

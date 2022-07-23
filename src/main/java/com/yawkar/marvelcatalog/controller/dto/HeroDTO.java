@@ -1,4 +1,4 @@
-package com.yawkar.marvelcatalog.dto;
+package com.yawkar.marvelcatalog.controller.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;

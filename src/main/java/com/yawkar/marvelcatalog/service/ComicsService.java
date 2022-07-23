@@ -1,7 +1,7 @@
 package com.yawkar.marvelcatalog.service;
 
-import com.yawkar.marvelcatalog.entity.Comic;
-import com.yawkar.marvelcatalog.entity.Hero;
+import com.yawkar.marvelcatalog.repository.entity.Comic;
+import com.yawkar.marvelcatalog.repository.entity.Hero;
 
 import java.util.List;
 

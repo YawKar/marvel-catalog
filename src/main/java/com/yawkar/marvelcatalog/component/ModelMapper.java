@@ -1,11 +1,11 @@
 package com.yawkar.marvelcatalog.component;
 
-import com.yawkar.marvelcatalog.dto.ComicDTO;
-import com.yawkar.marvelcatalog.dto.HeroDTO;
-import com.yawkar.marvelcatalog.entity.Comic;
-import com.yawkar.marvelcatalog.entity.Hero;
-import com.yawkar.marvelcatalog.view.ComicView;
-import com.yawkar.marvelcatalog.view.HeroView;
+import com.yawkar.marvelcatalog.controller.dto.ComicDTO;
+import com.yawkar.marvelcatalog.controller.dto.HeroDTO;
+import com.yawkar.marvelcatalog.repository.entity.Comic;
+import com.yawkar.marvelcatalog.repository.entity.Hero;
+import com.yawkar.marvelcatalog.controller.view.ComicView;
+import com.yawkar.marvelcatalog.controller.view.HeroView;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
