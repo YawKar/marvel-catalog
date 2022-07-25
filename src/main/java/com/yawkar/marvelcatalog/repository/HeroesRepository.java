@@ -1,7 +1,7 @@
 package com.yawkar.marvelcatalog.repository;
 
-import com.yawkar.marvelcatalog.entity.Hero;
-import org.springframework.data.repository.CrudRepository;
+import com.yawkar.marvelcatalog.repository.entity.Hero;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface HeroesRepository extends CrudRepository<Hero, Long> {
+public interface HeroesRepository extends JpaRepository<Hero, Long> {
 }
