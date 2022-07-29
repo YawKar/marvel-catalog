@@ -3,8 +3,8 @@ REST API service for managing catalog of superheroes and comics
 
 ## Table of Contents
 * [API endpoints](#api-endpoints)
-* [Persistence layer details](#persistence-layer-details)
-* [Technologies & Features](#technologies-and-features)
+* [Database UML Model](#database-uml-model)
+* [Technologies and Features used](#technologies-and-features-used)
 
 ## API endpoints
 * Characters controller
@@ -32,21 +32,11 @@ REST API service for managing catalog of superheroes and comics
     * `PUT /v1/public/comics`
         * Updates the comic
 
-## Persistence layer details
-In total there are 3 main tables in the database:
-1. `heroes`
-    * Contains `(<PK> id, real_name, alias)`
-    * Cascades many-to-many relationship with `comics` via `PERSIST` and `MERGE`
-    * Is the owning side of the many-to-many relationship
-2. `comics`
-    * Contains `(<PK> id, title, executive_editor)`
-    * Is the inverse side of the many-to-many relationship
-3. `heroes_in_comics`
-    * Contains `(hero_id, comic_id)`
-    * `<PK>` is the mix of the foreign keys
-    * Connects `heroes` entities with `comics` through bidirectional joining
+## Database UML Model
+UML/Entities Relationship diagram:
+![ER Diagram](docs/ER_Diagram.png)
 
-## Technologies and Features
+## Technologies and Features used
 
 ![java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 ![spring](https://img.shields.io/badge/spring%20-%236DB33F.svg?&style=for-the-badge&logo=spring&logoColor=white)
@@ -57,16 +47,18 @@ In total there are 3 main tables in the database:
 ![postgres](https://img.shields.io/badge/postgres-%23316192.svg?&style=for-the-badge&logo=postgresql&logoColor=white)
 ![swagger](https://img.shields.io/badge/swagger-%2385EA2D.svg?&style=for-the-badge&logo=swagger&logoColor=white)
 ![docker](https://img.shields.io/badge/docker-%232496ED.svg?&style=for-the-badge&logo=docker&logoColor=white)
+![postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white)
 
 * Spring
     * Spring Boot 2.7.1
-    * Spring Data
+    * Spring Data JPA
+    * Spring Boot Starter Validation
 * JUnit 5
-* Validation
-    * Spring Boot Starter Validation (javax.validation)
 * PostgreSQL 14
 * ModelMapper
 * Swagger
     * Springdoc
     * Swagger Annotations
 * Docker
+* Postman
+* StarUML
