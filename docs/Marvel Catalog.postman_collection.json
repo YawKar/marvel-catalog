@@ -1,0 +1,890 @@
+{
+	"info": {
+		"_postman_id": "a251a392-f64e-4e66-8db9-f44be1c530dd",
+		"name": "Marvel Catalog",
+		"description": "# Marvel Catalog: collection of requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Requests",
+			"item": [
+				{
+					"name": "Get the list of all heroes from the catalog",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/public/characters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"public",
+								"characters"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get the example list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/v1/public/characters",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"public",
+										"characters"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Jul 2022 11:53:40 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"alias\": \"The (Almighty) Dev\",\n        \"superpowers\": [\n            \"Java\",\n            \"Spring Framework\",\n            \"Maven\",\n            \"Docker\"\n        ],\n        \"real_name\": \"Vadim Karpov\"\n    },\n    {\n        \"id\": 2,\n        \"alias\": \"Superman\",\n        \"superpowers\": [\n            \"Laser Beam Eyes\",\n            \"Super strength\"\n        ],\n        \"real_name\": \"Clark Kent\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get a hero by the specified heroId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/public/characters/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"public",
+								"characters",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get a hero by heroId = 1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/v1/public/characters/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"public",
+										"characters",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Jul 2022 11:54:17 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"alias\": \"The (Almighty) Dev\",\n    \"superpowers\": [\n        \"Java\",\n        \"Spring Framework\",\n        \"Maven\",\n        \"Docker\"\n    ],\n    \"real_name\": \"Vadim Karpov\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all comics in which the hero with the specified heroId present",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/public/characters/1/comics",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"public",
+								"characters",
+								"1",
+								"comics"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all comics in which the hero with heroId = 1 presents",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/v1/public/characters/1/comics",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"public",
+										"characters",
+										"1",
+										"comics"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Jul 2022 12:07:01 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"Death Note Vol. 1\",\n        \"executive_editor\": \"VIZ Media LLC\",\n        \"cover_artists\": [\n            \"Tsugumi Ohba\"\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get the list of all comics from the catalog",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/public/comics",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"public",
+								"comics"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get the example list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/v1/public/comics",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"public",
+										"comics"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Jul 2022 12:04:29 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"Death Note Vol. 1\",\n        \"executive_editor\": \"VIZ Media LLC\",\n        \"cover_artists\": [\n            \"Tsugumi Ohba\"\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get the comic by the specified comicId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/public/comics/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"public",
+								"comics",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get the comic by comicId = 1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/v1/public/comics/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"public",
+										"comics",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Jul 2022 12:04:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"title\": \"Death Note Vol. 1\",\n    \"executive_editor\": \"VIZ Media LLC\",\n    \"cover_artists\": [\n        \"Tsugumi Ohba\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all heroes which present in the comic with the specified comicId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/public/comics/1/characters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"public",
+								"comics",
+								"1",
+								"characters"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all heroes which present in the comic with comicId = 1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/v1/public/comics/1/characters",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"public",
+										"comics",
+										"1",
+										"characters"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Jul 2022 12:07:44 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"alias\": \"The (Almighty) Dev\",\n        \"superpowers\": [\n            \"Java\",\n            \"Spring Framework\",\n            \"Maven\",\n            \"Docker\"\n        ],\n        \"real_name\": \"Vadim Karpov\"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Put Requests",
+			"item": [
+				{
+					"name": "Update the hero with the specified heroId",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"real_name\": \"Vadim Karpov\",\n    \"alias\": \"The (Almighty) Dev\",\n    \"superpowers\": [\n        \"Java\",\n        \"Spring Framework\",\n        \"Maven\",\n        \"Docker\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/public/characters/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"public",
+								"characters",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update the hero by heroId = 1",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"real_name\": \"Vadim Karpov\",\n    \"alias\": \"The (Almighty) Dev\",\n    \"superpowers\": [\n        \"Java\",\n        \"Spring Framework\",\n        \"Maven\",\n        \"Docker\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/public/characters/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"public",
+										"characters",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Jul 2022 11:52:44 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"alias\": \"The (Almighty) Dev\",\n    \"superpowers\": [\n        \"Java\",\n        \"Spring Framework\",\n        \"Maven\",\n        \"Docker\"\n    ],\n    \"real_name\": \"Vadim Karpov\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update the comic with the specified comicId",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Death Note Vol. 1\",\n    \"executive_editor\": \"VIZ Media LLC\",\n    \"cover_artists\": [\n        \"Tsugumi Ohba\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/public/comics/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"public",
+								"comics",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update the comic with the specified comicId",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Death Note Vol. 1\",\n    \"executive_editor\": \"VIZ Media LLC\",\n    \"cover_artists\": [\n        \"Tsugumi Ohba\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/public/comics/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"public",
+										"comics",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Jul 2022 12:04:00 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"title\": \"Death Note Vol. 1\",\n    \"executive_editor\": \"VIZ Media LLC\",\n    \"cover_artists\": [\n        \"Tsugumi Ohba\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update comics in which the hero presents",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    1\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/public/characters/1/comics",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"public",
+								"characters",
+								"1",
+								"comics"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Connect hero with heroId = 1 and comic with comicId = 1",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    1\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/public/characters/1/comics",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"public",
+										"characters",
+										"1",
+										"comics"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Jul 2022 12:06:16 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Post Requests",
+			"item": [
+				{
+					"name": "Post new hero",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"real_name\": \"Clark Kent\",\n    \"alias\": \"Superman\",\n    \"superpowers\": [\n        \"Laser Beam Eyes\",\n        \"Super strength\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/public/characters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"public",
+								"characters"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Post Clark Kent a.k.a Superman",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"real_name\": \"Clark Kent\",\n    \"alias\": \"Superman\",\n    \"superpowers\": [\n        \"Laser Beam Eyes\",\n        \"Super strength\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/public/characters",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"public",
+										"characters"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Jul 2022 11:49:03 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"alias\": \"Superman\",\n    \"superpowers\": [\n        \"Laser Beam Eyes\",\n        \"Super strength\"\n    ],\n    \"real_name\": \"Clark Kent\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Post new comic",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Clark Kent Gets a Job\",\n    \"executive_editor\": \"Vincent Sullivan\",\n    \"cover_artists\": [\n        \"Joe Shuster\",\n        \"Leo O'Mealia\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/public/comics",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"public",
+								"comics"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Post comic \"Clark Kent Gets a Job\"",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Clark Kent Gets a Job\",\n    \"executive_editor\": \"Vincent Sullivan\",\n    \"cover_artists\": [\n        \"Joe Shuster\",\n        \"Leo O'Mealia\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/public/comics",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"public",
+										"comics"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Jul 2022 12:00:31 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"title\": \"Clark Kent Gets a Job\",\n    \"executive_editor\": \"Vincent Sullivan\",\n    \"cover_artists\": [\n        \"Joe Shuster\",\n        \"Leo O'Mealia\"\n    ]\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
