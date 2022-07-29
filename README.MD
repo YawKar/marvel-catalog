@@ -2,9 +2,18 @@
 REST API service for managing catalog of superheroes and comics
 
 ## Table of Contents
+* [How to run](#how-to-run)
 * [API endpoints](#api-endpoints)
 * [Database UML Model](#database-uml-model)
 * [Technologies and Features used](#technologies-and-features-used)
+
+## How to run
+```bash
+chmod +x mvnw                     # allow executing maven wrapper
+./mvnw clean                      # clean /target (if it's not the first run)
+./mvnw package -Dmaven.test.skip  # build .jar (and skip testing)
+docker compose up                 # run composition
+```
 
 ## API endpoints
 Postman collection is available for playing with api: [Marvel Catalog.postman_collection.json](docs/Marvel%20Catalog.postman_collection.json)
@@ -61,5 +70,6 @@ UML/Entities Relationship diagram:
     * Springdoc
     * Swagger Annotations
 * Docker
+  * docker-compose (PostgreSQL14 + Spring Boot)
 * Postman
 * StarUML
