@@ -1,6 +1,10 @@
 # Marvel catalog - REST API service
 REST API service for managing catalog of superheroes and comics
 
+![Project stage: Development][project-stage-badge: Development]
+
+[project-stage-badge: Development]: https://img.shields.io/badge/Project%20Stage-Development-yellowgreen.svg
+
 ## Table of Contents
 * [How to run](#how-to-run)
 * [API endpoints](#api-endpoints)
