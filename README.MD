@@ -13,7 +13,6 @@ REST API service for managing catalog of superheroes and comics
 
 ## How to run
 ```bash
-chmod +x mvnw                     # allow executing maven wrapper
 ./mvnw clean                      # clean /target (if it's not the first run)
 ./mvnw package -Dmaven.test.skip  # build .jar (and skip testing)
 docker compose up                 # run composition
