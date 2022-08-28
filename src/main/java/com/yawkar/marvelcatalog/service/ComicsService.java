@@ -12,4 +12,5 @@ public interface ComicsService {
     List<Comic> getAllComics();
     Comic getComicById(long id);
     List<Hero> getHeroesFromComicById(long id);
+    void deleteComicById(long id);
 }
