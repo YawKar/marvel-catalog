@@ -103,4 +103,9 @@ public class ComicsController {
     public ComicView putComic(@Valid @RequestBody ComicDTO comicDTO, @PathVariable long comicId) {
         return comicMapper.toView(comicsService.updateComic(comicMapper.toEntity(comicDTO), comicId));
     }
+
+    @DeleteMapping("/{comicId}")
+    public void deleteComic(@PathVariable long comicId) {
+        comicsService.deleteComicById(comicId);
+    }
 }

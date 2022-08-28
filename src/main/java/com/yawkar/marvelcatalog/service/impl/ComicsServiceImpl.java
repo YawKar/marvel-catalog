@@ -49,4 +49,9 @@ public class ComicsServiceImpl implements ComicsService {
                 .orElseThrow(() -> new ComicNotFoundException("Comic with comicId=%d not found".formatted(comicId)))
                 .getHeroesPresent().stream().toList();
     }
+
+    @Override
+    public void deleteComicById(long id) {
+        comicsRepository.deleteById(id);
+    }
 }

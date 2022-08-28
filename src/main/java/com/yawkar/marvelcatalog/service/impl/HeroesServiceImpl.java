@@ -60,4 +60,9 @@ public class HeroesServiceImpl implements HeroesService {
         hero.getComicsInWhichPresent().addAll(comicsRepository.findAllById(comicIds));
         heroesRepository.save(hero);
     }
+
+    @Override
+    public void deleteHeroById(long heroId) {
+        heroesRepository.deleteById(heroId);
+    }
 }

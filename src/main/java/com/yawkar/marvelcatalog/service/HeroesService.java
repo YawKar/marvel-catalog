@@ -13,4 +13,5 @@ public interface HeroesService {
     Hero getHeroById(long heroId);
     List<Comic> getComicsWithHeroById(long heroId);
     void updateComicsWithHero(List<Long> comicIds, long heroId);
+    void deleteHeroById(long heroId);
 }

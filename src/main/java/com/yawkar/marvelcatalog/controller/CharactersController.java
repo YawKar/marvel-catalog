@@ -114,4 +114,9 @@ public class CharactersController {
     public void putComics(@PathVariable long heroId, @RequestBody List<Long> comicIds) {
         heroesService.updateComicsWithHero(comicIds, heroId);
     }
+
+    @DeleteMapping("/{heroId}")
+    public void deleteHeroById(@PathVariable long heroId) {
+        heroesService.deleteHeroById(heroId);
+    }
 }
