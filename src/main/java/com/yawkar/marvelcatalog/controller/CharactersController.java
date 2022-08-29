@@ -115,6 +115,10 @@ public class CharactersController {
         heroesService.updateComicsWithHero(comicIds, heroId);
     }
 
+    @Operation(summary = "Delete hero by `heroId`")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Successfully deleted the hero"),
+            @ApiResponse(responseCode = "404", description = "Hero with specified `heroId` was not found")})
     @DeleteMapping("/{heroId}")
     public void deleteHeroById(@PathVariable long heroId) {
         heroesService.deleteHeroById(heroId);
