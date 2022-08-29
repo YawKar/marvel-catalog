@@ -20,30 +20,33 @@ docker compose up                 # run composition
 
 ## API endpoints
 Postman collection is available for playing with api: [Marvel Catalog.postman_collection.json](docs/Marvel%20Catalog.postman_collection.json)
+* Swagger UI docs
+  * `GET /ui-docs`
+    * Opens Swagger UI docs
 * Characters controller
-    * `GET /v1/public/characters`
-        * Gets the list of all heroes from the catalog
-    * `GET /v1/public/characters/{heroId}`
-        * Gets a hero by the specified `heroId`
-    * `GET /v1/public/characters/{heroId}/comics`
-        * Gets all comics in which the hero with the specified `heroId` present
-    * `POST /v1/public/characters`
-        * Posts new hero
-    * `PUT /v1/public/characters/{heroId}`
-        * Updates the existing hero
-    * `PUT /v1/public/characters/{heroId}/comics`
-        * Updates comics in which the hero presents
+  * `GET /v1/public/characters`
+    * Gets the list of all heroes from the catalog
+  * `GET /v1/public/characters/{heroId}`
+    * Gets a hero by the specified `heroId`
+  * `GET /v1/public/characters/{heroId}/comics`
+    * Gets all comics in which the hero with the specified `heroId` present
+  * `POST /v1/public/characters`
+    * Posts new hero
+  * `PUT /v1/public/characters/{heroId}`
+    * Updates the existing hero
+  * `PUT /v1/public/characters/{heroId}/comics`
+    * Updates comics in which the hero presents
 * Comics controller
-    * `GET /v1/public/comics`
-        * Gets the list of all comics from the catalog
-    * `GET /v1/public/comics/{comicId}`
-        * Gets the comic by the specified `comicId`
-    * `GET /v1/public/comics/{comicId}/characters`
-        * Gets all heroes which present in the comic with the specified `comicId`
-    * `POST /v1/public/comics`
-        * Posts new comic
-    * `PUT /v1/public/comics/{comicId}`
-        * Updates the existing comic
+  * `GET /v1/public/comics`
+    * Gets the list of all comics from the catalog
+  * `GET /v1/public/comics/{comicId}`
+    * Gets the comic by the specified `comicId`
+  * `GET /v1/public/comics/{comicId}/characters`
+    * Gets all heroes which present in the comic with the specified `comicId`
+  * `POST /v1/public/comics`
+    * Posts new comic
+  * `PUT /v1/public/comics/{comicId}`
+    * Updates the existing comic
 
 ## Database UML Model
 UML/Entities Relationship diagram:
