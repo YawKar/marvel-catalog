@@ -63,6 +63,8 @@ public class HeroesServiceImpl implements HeroesService {
 
     @Override
     public void deleteHeroById(long heroId) {
+        if (!heroesRepository.existsById(heroId))
+            throw new HeroNotFoundException("Hero with heroId=%d not found".formatted(heroId));
         heroesRepository.deleteById(heroId);
     }
 }
