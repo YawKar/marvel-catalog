@@ -52,6 +52,8 @@ public class ComicsServiceImpl implements ComicsService {
 
     @Override
     public void deleteComicById(long id) {
+        if (!comicsRepository.existsById(id))
+            throw new ComicNotFoundException("Comic with comicId=%d not found".formatted(id));
         comicsRepository.deleteById(id);
     }
 }

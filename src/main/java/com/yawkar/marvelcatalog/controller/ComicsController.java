@@ -104,6 +104,10 @@ public class ComicsController {
         return comicMapper.toView(comicsService.updateComic(comicMapper.toEntity(comicDTO), comicId));
     }
 
+    @Operation(summary = "Delete comic by `comicId`")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Successfully deleted the comic"),
+            @ApiResponse(responseCode = "404", description = "Comic with specified `comicId` was not found")})
     @DeleteMapping("/{comicId}")
     public void deleteComic(@PathVariable long comicId) {
         comicsService.deleteComicById(comicId);
