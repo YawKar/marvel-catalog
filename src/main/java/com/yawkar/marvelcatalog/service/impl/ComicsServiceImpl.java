@@ -5,18 +5,16 @@ import com.yawkar.marvelcatalog.repository.entity.Hero;
 import com.yawkar.marvelcatalog.configuration.exception.ComicNotFoundException;
 import com.yawkar.marvelcatalog.repository.ComicsRepository;
 import com.yawkar.marvelcatalog.service.ComicsService;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@AllArgsConstructor
 @Service
 public class ComicsServiceImpl implements ComicsService {
 
     private final ComicsRepository comicsRepository;
-
-    public ComicsServiceImpl(ComicsRepository comicsRepository) {
-        this.comicsRepository = comicsRepository;
-    }
 
     @Override
     public Comic addComic(Comic comic) {

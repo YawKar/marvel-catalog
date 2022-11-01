@@ -6,20 +6,17 @@ import com.yawkar.marvelcatalog.configuration.exception.HeroNotFoundException;
 import com.yawkar.marvelcatalog.repository.ComicsRepository;
 import com.yawkar.marvelcatalog.repository.HeroesRepository;
 import com.yawkar.marvelcatalog.service.HeroesService;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@AllArgsConstructor
 @Service
 public class HeroesServiceImpl implements HeroesService {
 
     private final HeroesRepository heroesRepository;
     private final ComicsRepository comicsRepository;
-
-    public HeroesServiceImpl(HeroesRepository heroesRepository, ComicsRepository comicsRepository) {
-        this.heroesRepository = heroesRepository;
-        this.comicsRepository = comicsRepository;
-    }
 
     @Override
     public Hero addHero(Hero hero) {
